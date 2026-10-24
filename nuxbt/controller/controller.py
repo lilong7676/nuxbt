@@ -43,7 +43,7 @@ class Controller():
         self.bt.set_powered(True)
         self.bt.set_pairable(True)
         self.bt.set_pairable_timeout(0)
-        self.bt.set_discoverable_timeout(180)
+        self.bt.set_discoverable_timeout(0)
 
         self.bt.set_alias(self.alias)
 

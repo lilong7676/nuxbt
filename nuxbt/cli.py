@@ -245,7 +245,7 @@ def demo(ctx):
               help="Specifies a macro string or a file location to load a macro string from.")
 @click.option('-r', '--reconnect', is_flag=True, default=False,
               help="nuxbt will attempt to reconnect to any previously connected Nintendo Switch.")
-@click.option('-a', '--address', required=False, default=False,
+@click.option('-a', '--address', required=False, default=None, type=str,
               help="nuxbt will attempt to reconnect to a specific Bluetooth MAC address of a Nintendo Switch.")
 @pass_context
 def macro(ctx, commands, reconnect, address):
@@ -294,7 +294,7 @@ def macro(ctx, commands, reconnect, address):
 @main.command()
 @click.option('-r', '--reconnect', is_flag=True, default=False,
               help="nuxbt will attempt to reconnect to any previously connected Nintendo Switch.")
-@click.option('-a', '--address', required=False, default=False,
+@click.option('-a', '--address', required=False, default=None, type=str,
               help="nuxbt will attempt to reconnect to a specific Bluetooth MAC address of a Nintendo Switch.")
 @pass_context
 def tui(ctx, reconnect, address):
@@ -308,7 +308,7 @@ def tui(ctx, reconnect, address):
 @main.command()
 @click.option('-r', '--reconnect', is_flag=True, default=False,
               help="nuxbt will attempt to reconnect to any previously connected Nintendo Switch.")
-@click.option('-a', '--address', required=False, default=False,
+@click.option('-a', '--address', required=False, default=None, type=str,
               help="nuxbt will attempt to reconnect to a specific Bluetooth MAC address of a Nintendo Switch.")
 @pass_context
 def remote_tui(ctx, reconnect, address):

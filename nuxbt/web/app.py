@@ -285,8 +285,9 @@ def on_create_controller():
     print("Create Controller")
 
     try:
-        reconnect_addresses = nuxbt.get_switch_addresses()
-        index = nuxbt.create_controller(PRO_CONTROLLER, reconnect_address=reconnect_addresses)
+        # Switch 2 不保存 link key，带 reconnect_address 会一直卡在 reconnecting；
+        # 这里始终等待一次全新的配对（Switch 1 也仍可正常使用）。
+        index = nuxbt.create_controller(PRO_CONTROLLER)
 
         with user_info_lock:
             USER_INFO[request.sid]["controller_index"] = index
